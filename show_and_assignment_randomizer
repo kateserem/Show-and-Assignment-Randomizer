@@ -1,0 +1,250 @@
+import random
+
+def activities(): #function for user to determine which activity they will do
+    print()
+    print("Default list consists of: Skating/Streaming Services/Code/Game")
+    print()
+    default_or_custom_activities = input("Do you want to choose a random activity from the default list of customize your own? (default/custom): ")
+    
+    default_activity = ["Skating", "Streaming Services", "Code", "Game"] #default list
+    if default_or_custom_activities == 'default' or default_or_custom_activities == "Default":
+        chosen_default_activity = random.choice(default_activity) #choosing a ramdom activity from the default list
+        print()
+        print(f"The random activity is {chosen_default_activity}")
+        
+        if chosen_default_activity == "Streaming Services":
+            service_type = input("Do you wan to watch Youtube, a Show, or a Movie?: ")
+            
+            if service_type == "Youtube":
+                print()
+                print("Enjoy Youtube :) ")
+                print()
+                restart_input = input("Restart? (y/n): \n")
+                
+                if restart_input == "y": #does user want to restart? 
+                    return 'y'
+                else:
+                    return 'n'
+
+            elif service_type == "Show" or service_type == "show":
+                
+                num_shows = int(input("Great! How many shows are you choosing from?")) 
+                
+                while num_shows < 2: #ensure there is a sufficient amount of shows to randomize
+                    print("Invalid Input. Enter a minimum 2. ")
+                    num_shows = int(input("Great! How many shows are you choosing from?"))
+                    
+                shows = []
+                for i in range(num_shows): #put user input into show list
+                    show = input(f"Enter the show name you would like to randomize {i+1}: \n")
+                    shows.append(show)
+
+
+                yourshow = random.choice(shows) #select random show
+                print()
+                print(f"Your show  is \'{yourshow}\'") #print show
+
+
+                print()
+                restart_input = input("Restart? (y/n): \n") #does user want to restart?
+                if restart_input == "y":
+                    return 'y' #if user wants to restart
+                else:
+                    return 'n' #ending program
+
+                    
+            elif service_type == "Movie" or service_type == "movie":
+                num_movies = int(input("Great! How many movies are you choosing from?")) #user input for num of movies
+                
+                while num_movies < 2: #ensure there is a sufficient amount of shows to randomize
+                    print("Invalid Input. Minimum number of 2 movies")
+                    num_movies = int(input("How many movies are you choosing from?"))
+                    
+                
+                movies = []
+                for i in range(num_movies): #put user input into movies list
+                    movie = input(f"Enter the show name you would like to randomize {i+1}: ")
+                    movies.append(movie)
+                    
+
+                random_movie = random.choice(movies) #selected random movie
+                print(f"Your Movie is \'{random_movie}\'")
+
+                print()
+                restart_input = input("Restart? (y/n): \n") #does user want to restart?
+                if restart_input == "y":
+                    return 'y' #if user wants to restart
+                else:
+                    return 'n' #end program
+        
+        elif chosen_default_activity == "Game":
+            print()
+            print("Default Games - Dead by Daylight (DBD), Overwatch 2 (OW2), Cozy Grove")
+            default_or_custom_games = input("Would you like to choose a random game from the default list? (y/n)") #user input for if they want want to user defaulted list
+            
+            if default_or_custom_games == 'y': #defaulted list was chosen
+                default_games = ["DBD, OW2, Cozy Grove, Apex Legends, Fortnite, Rocket League, Risk of Rain 2, Valorant, CSGO 2, Call of Duty"]
+                chosen_default_game = random.choice(default_games)
+                print()
+                print(f"The random activity is {chosen_default_game}")
+            if default_or_custom_games == 'n': #user making their own list of games
+                num_of_games = int(input("How many games are you wanting to choose from at random?: ")) #user input for number of games 
+            
+                while num_of_games < 2: #ensure that input is a sufficient amount of games to randomize
+                    print("Invalid Input")
+                    num_of_games = int(input("How many games are you wanting to choose from at random?: "))
+                    
+                custom_games = []
+                for i in range(num_of_games):
+                    games = input(f"Enter the game {i+1}")
+                    chosen_custom_game = custom_games.append(games) #put games into custom games list
+                    print()
+                    print(f"Play {chosen_custom_game}!")
+                    
+                print()
+                restart_input = input("Restart? (y/n): \n") #does user want to restart?
+                if restart_input == "y":
+                    return 'y' #restart program
+                else:
+                    return 'n'  #end program
+                    
+        elif chosen_default_activity == "Code": #if coding was chosen
+            print("Get to coding :) !! \n")
+            
+            restart_input = input("Restart? (y/n): \n") #does user want to restart?
+            if restart_input == "y":
+                return 'y' #restart program
+            else:
+                return 'n' #end program
+        
+        elif chosen_default_activity == "Skating" or chosen_default_activity == "skating": #if skating was chosen
+            print("Have fun skating :) !!\n")
+            
+            restart_input = input("Restart? (y/n): \n") #does user want to restart
+            if restart_input == "y":
+                return 'y' #restart program
+            else:
+                return 'n' #end program
+    
+        
+    elif default_or_custom_activities == 'custom' or default_or_custom_activities == 'Custum': #user wants to create a custom activity list
+        num_of_activities = int(input("How many custom activities are you wanting to randomize: "))
+        
+        while num_of_activities < 2: #ensure number of activities is enough to randomize
+            print("Invalid Input. Enter a minimum of 2 activities: ")
+            num_of_activities = int(input("How many custom activities are you wanting to randomize: "))
+            
+        custom_activies = []
+        for i in range(num_of_activities):
+            list_activities = input(f"Name activity {i+1}: ") #put custom activities into custom activities
+            custom_activies.append(list_activities)
+            
+        chosen_custom_activity = random.choice(custom_activies) #chosen random activity
+        print()
+        print(f"Your random activity is \'{chosen_custom_activity}\'")
+
+        restart_input = input("Restart? (y/n): \n") #restart program
+        if restart_input == "y":
+            return 'y' #restart program
+        else:
+            return 'n' #end program
+        
+
+    
+def time_study(num_of_classes):
+    num_of_classes = num_of_classes
+    
+    classes = []
+    for i in range(num_of_classes): #put all classes entered into classes list
+        list_classes = input(f"What classes do you need to work or study for: \n")
+        classes.append(list_classes)
+        
+
+    random_subject = random.choice(classes) #selected subject
+    print()
+    print(f"Chosen Subject is \'{random_subject}\'")
+    
+    
+    num_assignments = int(input("How many assignments are needed to be done for this class?: ")) #user input for number of classes
+    
+    while num_assignments < 2: #ensure number of assignments is sufficient
+        print("Invalid input. Enter a minimum of 2: ")
+        num_assignments = int(input("How many assignments are needed to be done for this class?: "))
+        
+    to_do = []
+    for i in range(num_assignments): #enter assignments in to do list
+        assignments = input(f"List the {num_assignments} assignments you need to do for {random_subject}: ")
+        to_do.append(assignments)
+                
+
+    chosen_to_do = random.choice(to_do) #select subject
+    print()
+    print(f"Your randomized subject is: {chosen_to_do}")
+
+        
+    restart_input = input("Restart? (y/n): \n") #does user want to restart program
+    if restart_input == "y":
+        return 'y' #restart program
+    else:
+        return 'n' #end program
+        
+        
+    to_do = []
+    for i in range(to_do): #put assignments in to do list
+        assignments = input(f"List assignments you need to do for {random_subject}")
+        to_do.append(assignments)
+            
+    if to_do > 0:  #if they have an assignment 
+        chosen_to_do = random.choice(to_do) 
+        print()
+        print(f"Your randomized subject is {chosen_to_do}")
+        return chosen_to_do
+    else: # no assignments
+        print()
+        print(f"You have nothing to do for the class {random_subject}")
+        
+        print()
+        restart_input = input("Restart? (y/n): \n") #does user want to restart program
+        if restart_input == "y":
+            return 'y' #restart program
+        else:
+            return 'n' #end program
+        
+            
+            
+            
+            
+print("Need to choose a show, but can't decide yourself?")
+studied = str(input("First, Have you studied and completed your assignments for today (y/n): ")) #user input to start program
+print()
+
+while studied not in ['y', 'n']: #ensure input for starting program is valid
+    print("Invalid Option. Try again.")
+    studied = input("Have you studied and completed your assignments for today (y/n): ")
+    print()
+
+if studied == 'y': #start activities randomizer function 
+    restart_return = activities()
+    while restart_return != 'n': #if restart program is yes then fucntion runs again
+        restart_return = activities();
+        
+    print()
+    print("Goodbye :) ")
+    
+elif studied == "n": #start assignment randomizer program
+    num_of_classes = int(input("How many classes do you have assignments for?"))
+    
+    while num_of_classes < 1: #ensure number of classes is valid
+        num_of_classes = int(input("How many classes do you have assignments for?"))
+
+        
+    
+    time_study_restart = time_study(num_of_classes)
+    while time_study != 'n': #if restart program is yes then fucntion runs again
+        time_study_restart = time_study(num_of_classes)
+    
+    print()
+    print("Goodbye :) ")
+    
+    
+
